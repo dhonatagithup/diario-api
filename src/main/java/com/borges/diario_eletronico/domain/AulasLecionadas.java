@@ -1,14 +1,16 @@
 package com.borges.diario_eletronico.domain;
 
 import java.io.Serializable;
-import java.time.LocalDateTime;
+import java.util.Date;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
 import javax.validation.constraints.NotBlank;
-import javax.validation.constraints.NotNull;
 
 import org.springframework.format.annotation.DateTimeFormat;
 
@@ -20,9 +22,10 @@ public class AulasLecionadas implements Serializable{
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Integer id;
 	
-	@NotNull(message = "Selecione a DATA por favor!")
-	@DateTimeFormat(pattern = "dd/MM/yyyy HH:mm")
-	private LocalDateTime dataAula;
+	@DateTimeFormat(pattern = "dd/MM/yyyy")
+	@Temporal(TemporalType.DATE)
+	@Column(name = "dataAula")
+	private Date dataAula;	
 	
 	@NotBlank(message = "Informe o BIMESTRE por favor!")
 	private String bimestre;
@@ -37,7 +40,7 @@ public class AulasLecionadas implements Serializable{
 		super();
 	}
 
-	public AulasLecionadas(Integer id, LocalDateTime dataAula, String bimestre, String disciplina, String obsAulas) {
+	public AulasLecionadas(Integer id, Date dataAula, String bimestre, String disciplina, String obsAulas) {
 		super();
 		this.id = id;
 		this.dataAula = dataAula;
@@ -95,11 +98,11 @@ public class AulasLecionadas implements Serializable{
 		this.id = id;
 	}
 
-	public LocalDateTime getDataAula() {
+	public Date getDataAula() {
 		return dataAula;
 	}
 
-	public void setDataAula(LocalDateTime dataAula) {
+	public void setDataAula(Date dataAula) {
 		this.dataAula = dataAula;
 	}
 

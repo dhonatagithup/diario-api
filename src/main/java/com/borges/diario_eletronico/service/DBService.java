@@ -2,7 +2,6 @@ package com.borges.diario_eletronico.service;
 
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
-import java.time.LocalDateTime;
 import java.util.Arrays;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -66,7 +65,7 @@ public class DBService {
 			
 		ObservacoesGerais obs1 = new ObservacoesGerais(null, sdf.parse("25/06/1995"), "Campo de Obs.....");
 		
-		AulasLecionadas al1 = new AulasLecionadas(null, LocalDateTime.now(), "oitavo", "matematica", "Campo de Obs.....");
+		AulasLecionadas al1 = new AulasLecionadas(null, sdf.parse("25/06/1995"), "oitavo", "matematica", "Campo de Obs.....");
 		
 		Frequencia f1 = new Frequencia(null, "Josias Barbosa", "inglês", 10.0, 5.0, "f", 25);
 		
