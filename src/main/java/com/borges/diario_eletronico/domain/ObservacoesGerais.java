@@ -1,12 +1,15 @@
 package com.borges.diario_eletronico.domain;
 
 import java.io.Serializable;
-import java.time.LocalDateTime;
+import java.util.Date;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
 
@@ -21,8 +24,10 @@ public class ObservacoesGerais implements Serializable {
 	private Integer id;
 	
 	@NotNull(message = "Selecione a DATA por favor!")
-	@DateTimeFormat(pattern = "dd/MM/yyyy HH:mm")
-	private LocalDateTime dataObs;
+	@DateTimeFormat(pattern = "dd/MM/yyyy")
+	@Temporal(TemporalType.DATE)
+	@Column(name = "dataObs")
+	private Date dataObs;
 	
 	@NotBlank(message = "É necessario colocar a observação!")
 	private String campoObs;
@@ -33,7 +38,7 @@ public class ObservacoesGerais implements Serializable {
 	
 	
 	
-	public ObservacoesGerais(Integer id, LocalDateTime dataObs, String campoObs) {
+	public ObservacoesGerais(Integer id, Date dataObs, String campoObs) {
 		super();
 		this.id = id;
 		this.dataObs = dataObs;
@@ -80,11 +85,11 @@ public class ObservacoesGerais implements Serializable {
 		this.id = id;
 	}
 
-	public LocalDateTime getDataObs() {
+	public Date getDataObs() {
 		return dataObs;
 	}
 
-	public void setDataObs(LocalDateTime dataObs) {
+	public void setDataObs(Date dataObs) {
 		this.dataObs = dataObs;
 	}
 

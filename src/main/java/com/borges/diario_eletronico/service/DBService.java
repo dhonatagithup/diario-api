@@ -51,25 +51,28 @@ public class DBService {
 	
 	
 	public void instanciaDB() throws ParseException {	
-		SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");	
+		SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");
+		
+		/*DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss.SSS");
+		LocalDateTime dateTime = LocalDateTime.parse("2016-09-21 13:43:27.000", formatter);*/
 		
 		Aluno a1 = new Aluno(null, "João Borges", sdf.parse("25/06/1995"),"masculino", "133.120.446-18", "mg19.599.003", 
-							"(38)99927-6907", "rua: batista", 17, "veredinha","38689-000","Chapada",
-							"Minas Gerais", "Urbana", 1206,"Joana Bispo");
+							"(38)99927-6907", "rua: batista", 17, "veredinha","38689-000","chapada",
+							"minas Gerais", "urbana", 1206,"Joana Bispo");
 			
 		Profissional p1 = new Profissional(null, "Joana Marques",sdf.parse("25/06/1995"), "masculino", "957.443.730-20", "mg19.599.003", 
-							"(38)99927-6907", "rua: batista", 17, "veredinha","38689-000","Chapada",
-							"Minas Gerais", "Urbana", "Professor", "Oitavo ano", "Matematica", "joana@gmail.com", "senha123");
+							"(38)99927-6907", "rua: batista", 17, "veredinha","38689-000","chapada",
+							"minas Gerais", "urbana", "professor", "oitavo ano", "matematica", "joana@gmail.com", "senha123");
 			
-		ObservacoesGerais obs1 = new ObservacoesGerais(null, LocalDateTime.now(), "Campo de Obs.....");
+		ObservacoesGerais obs1 = new ObservacoesGerais(null, sdf.parse("25/06/1995"), "Campo de Obs.....");
 		
-		AulasLecionadas al1 = new AulasLecionadas(null, LocalDateTime.now(), "Oitavo", "Matematica", "Campo de Obs.....");
+		AulasLecionadas al1 = new AulasLecionadas(null, LocalDateTime.now(), "oitavo", "matematica", "Campo de Obs.....");
 		
-		Frequencia f1 = new Frequencia(null, "Josias Barbosa", "Inglês", 10.0, 5.0, "f", 25);
+		Frequencia f1 = new Frequencia(null, "Josias Barbosa", "inglês", 10.0, 5.0, "f", 25);
 		
-		AtividadesAvaliativas at1 = new AtividadesAvaliativas(null, "João Batista", 65.40, "Sexto Bimestre", 40.0, 50.0, 5.0, 95.0);
+		AtividadesAvaliativas at1 = new AtividadesAvaliativas(null, "João Batista", 65.40, "sexto bimestre", 40.0, 50.0, 5.0, 95.0);
 		
-		ResultadoFinal r1 = new ResultadoFinal(null, "João Batista", "Oitado Ano", 78.0, 65.0, 25, 78.0, 1 );
+		ResultadoFinal r1 = new ResultadoFinal(null, "João Batista", "oitado ano", 78.0, 65.0, 25, 78.0, 1 );
 		
 		alunoRepository.saveAll(Arrays.asList(a1));
 		
