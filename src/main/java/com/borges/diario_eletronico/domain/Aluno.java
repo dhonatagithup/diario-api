@@ -1,13 +1,16 @@
 package com.borges.diario_eletronico.domain;
 
 import java.io.Serializable;
+import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 import javax.validation.constraints.NotBlank;
@@ -78,14 +81,13 @@ public class Aluno extends Pessoa implements Serializable{
 	@NotBlank(message = "Campo RESPONSÁVEL não pode ser vasio!")
 	private String responsavel;
 	
+	@OneToMany(mappedBy = "aluno")
+	private List<Enturmacao> list = new ArrayList<>();
+	
 	public Aluno() {
 		super();
 	
 	}
-	
-	
-
-	
 
 	public Aluno(Integer id, String nome, Date nascimento, String sexo, String cpf, String rg, String telefone, 
 	String endereco, Integer numero, String bairro, String cep, String cidade, String estado, String zona,
@@ -264,5 +266,5 @@ public class Aluno extends Pessoa implements Serializable{
 	public void setResponsavel(String responsavel) {
 		this.responsavel = responsavel;
 	}
-		
+	
 }

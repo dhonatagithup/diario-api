@@ -10,17 +10,21 @@ import org.springframework.stereotype.Service;
 import com.borges.diario_eletronico.domain.Aluno;
 import com.borges.diario_eletronico.domain.AtividadesAvaliativas;
 import com.borges.diario_eletronico.domain.AulasLecionadas;
+import com.borges.diario_eletronico.domain.Enturmacao;
 import com.borges.diario_eletronico.domain.Frequencia;
 import com.borges.diario_eletronico.domain.ObservacoesGerais;
 import com.borges.diario_eletronico.domain.Profissional;
 import com.borges.diario_eletronico.domain.ResultadoFinal;
+import com.borges.diario_eletronico.domain.User;
 import com.borges.diario_eletronico.repository.AlunoRepository;
 import com.borges.diario_eletronico.repository.AtividadesAvaliativasRepository;
 import com.borges.diario_eletronico.repository.AulasLecionadasRepository;
+import com.borges.diario_eletronico.repository.EnturmacaoRepository;
 import com.borges.diario_eletronico.repository.FrequenciaRepository;
 import com.borges.diario_eletronico.repository.ObservacoesGeraisRepository;
 import com.borges.diario_eletronico.repository.ProfissionalRepository;
 import com.borges.diario_eletronico.repository.ResultadoFinalRepository;
+import com.borges.diario_eletronico.repository.UserRepository;
 
 @Service
 public class DBService {
@@ -46,8 +50,13 @@ public class DBService {
 	private AtividadesAvaliativasRepository  atividadesAvaliativasRepository;
 	
 	@Autowired
-	private ResultadoFinalRepository  resultadoFinalRepository ;
+	private ResultadoFinalRepository  resultadoFinalRepository;
 	
+	@Autowired
+	private EnturmacaoRepository enturmacaoRepository;	
+	
+	@Autowired
+	private UserRepository userRespository;
 	
 	public void instanciaDB() throws ParseException {	
 		SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");
@@ -73,6 +82,10 @@ public class DBService {
 		
 		ResultadoFinal r1 = new ResultadoFinal(null, "João Batista", "oitado ano", 78.0, 65.0, 25, 78.0, 1 );
 		
+		Enturmacao e1 = new Enturmacao(null,sdf.parse("25/06/2021"), sdf.parse("15/12/2021"), a1, p1);
+		
+		User u1 = new User(null, "borges", "123");
+		
 		alunoRepository.saveAll(Arrays.asList(a1));
 		
 		profissionalRepository.saveAll(Arrays.asList(p1));
@@ -86,6 +99,10 @@ public class DBService {
 		atividadesAvaliativasRepository.saveAll(Arrays.asList(at1));
 		
 		resultadoFinalRepository.saveAll(Arrays.asList(r1));
+		
+		enturmacaoRepository.saveAll(Arrays.asList(e1));
+		
+		userRespository.saveAll(Arrays.asList(u1));
 
 	}
 

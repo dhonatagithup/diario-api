@@ -85,7 +85,6 @@ public class Profissional extends Pessoa implements Serializable{
 	@NotBlank(message = "Campo SENHA não pode ser vasio!")
 	private String senha;
 	
-	
 	public Profissional() {
 		super();
 	}
@@ -290,6 +289,5 @@ public class Profissional extends Pessoa implements Serializable{
 	public void setSenha(String senha) {
 		this.senha = senha;
 	}
-		
 	
 }
