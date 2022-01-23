@@ -79,19 +79,13 @@ public class Profissional extends Pessoa implements Serializable{
 	@NotBlank(message = "Campo DISCIPLINA não pode ser vasio!")
 	private String disciplina;
 	
-	@NotBlank(message = "Campo EMAIL não pode ser vasio!")
-	private String email;
-	
-	@NotBlank(message = "Campo SENHA não pode ser vasio!")
-	private String senha;
-	
 	public Profissional() {
 		super();
 	}
 
 	public Profissional(Integer id, String nome, Date nascimento, String sexo, String cpf, String rg, String telefone,
 			String endereco, Integer numero, String bairro, String cep, String cidade, String estado, String zona,
-			String cargo, String turma, String disciplina, String email, String senha) {
+			String cargo, String turma, String disciplina) {
 		super();
 		this.id = id;
 		this.nome = nome;
@@ -110,9 +104,7 @@ public class Profissional extends Pessoa implements Serializable{
 		this.cargo = cargo;
 		this.turma = turma;
 		this.disciplina = disciplina;
-		this.email = email;
-		this.senha = senha;
-	}
+		}
 	
 	public Profissional(Profissional obj) {
 		super();
@@ -133,10 +125,7 @@ public class Profissional extends Pessoa implements Serializable{
 		this.cargo = obj.getCargo();
 		this.turma = obj.getTurma();
 		this.disciplina = obj.getDisciplina();
-		this.email = obj.getEmail();
-		this.senha = obj.getSenha();
-		
-	}
+		}
 
 	public Integer getId() {
 		return id;
@@ -274,20 +263,4 @@ public class Profissional extends Pessoa implements Serializable{
 		this.disciplina = disciplina;
 	}
 
-	public String getEmail() {
-		return email;
 	}
-
-	public void setEmail(String email) {
-		this.email = email;
-	}
-
-	public String getSenha() {
-		return senha;
-	}
-
-	public void setSenha(String senha) {
-		this.senha = senha;
-	}
-	
-}

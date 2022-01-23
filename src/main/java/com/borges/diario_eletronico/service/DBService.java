@@ -15,7 +15,6 @@ import com.borges.diario_eletronico.domain.Frequencia;
 import com.borges.diario_eletronico.domain.ObservacoesGerais;
 import com.borges.diario_eletronico.domain.Profissional;
 import com.borges.diario_eletronico.domain.ResultadoFinal;
-import com.borges.diario_eletronico.domain.User;
 import com.borges.diario_eletronico.repository.AlunoRepository;
 import com.borges.diario_eletronico.repository.AtividadesAvaliativasRepository;
 import com.borges.diario_eletronico.repository.AulasLecionadasRepository;
@@ -24,7 +23,6 @@ import com.borges.diario_eletronico.repository.FrequenciaRepository;
 import com.borges.diario_eletronico.repository.ObservacoesGeraisRepository;
 import com.borges.diario_eletronico.repository.ProfissionalRepository;
 import com.borges.diario_eletronico.repository.ResultadoFinalRepository;
-import com.borges.diario_eletronico.repository.UserRepository;
 
 @Service
 public class DBService {
@@ -55,8 +53,11 @@ public class DBService {
 	@Autowired
 	private EnturmacaoRepository enturmacaoRepository;	
 	
+	/*@Autowired
+	private UsuarioRepository userRespository;
+	
 	@Autowired
-	private UserRepository userRespository;
+	private PasswordEncoder encoder;*/
 	
 	public void instanciaDB() throws ParseException {	
 		SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");
@@ -70,7 +71,7 @@ public class DBService {
 			
 		Profissional p1 = new Profissional(null, "Joana Marques",sdf.parse("25/06/1995"), "masculino", "957.443.730-20", "mg19.599.003", 
 							"(38)99927-6907", "rua: batista", 17, "veredinha","38689-000","chapada",
-							"minas Gerais", "urbana", "professor", "oitavo ano", "matematica", "joana@gmail.com", "senha123");
+							"minas Gerais", "urbana", "professor", "oitavo ano", "matematica");
 			
 		ObservacoesGerais obs1 = new ObservacoesGerais(null, sdf.parse("25/06/1995"), "Campo de Obs.....");
 		
@@ -84,7 +85,12 @@ public class DBService {
 		
 		Enturmacao e1 = new Enturmacao(null,sdf.parse("25/06/2021"), sdf.parse("15/12/2021"), a1, p1);
 		
-		User u1 = new User(null, "borges", "123");
+		/*Usuario u1 = new Usuario();
+		Usuario u2 = new Usuario();
+		u1.setLogin("Oliveira");
+		u1.setSenha(encoder.encode("1234"));
+		u2.setLogin("borges");
+		u2.setSenha(encoder.encode("1234"));*/
 		
 		alunoRepository.saveAll(Arrays.asList(a1));
 		
@@ -102,7 +108,7 @@ public class DBService {
 		
 		enturmacaoRepository.saveAll(Arrays.asList(e1));
 		
-		userRespository.saveAll(Arrays.asList(u1));
+		//userRespository.saveAll(Arrays.asList(u1,u2));
 
 	}
 

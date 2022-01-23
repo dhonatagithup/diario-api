@@ -64,9 +64,7 @@ public class ProfissionalService {
 		oldObj.setCargo(obj.getCargo()); 
 		oldObj.setTurma(obj.getTurma()); 
 		oldObj.setDisciplina(obj.getDisciplina()); 
-		oldObj.setEmail(obj.getEmail()); 
-		oldObj.setSenha(obj.getSenha()); 
-		
+				
 		return profissionalRepository.save(oldObj);
 	
 	}
@@ -83,7 +81,7 @@ public class ProfissionalService {
 		return profissionalRepository.save(new Profissional(null, obj.getNome(), obj.getNascimento(), obj.getSexo(), obj.getCpf(), obj.getRg(),
 											  obj.getTelefone(), obj.getEndereco(),obj.getNumero(), obj.getBairro(), obj.getCep(),
 											  obj.getCidade(), obj.getEstado(), obj.getZona(), obj.getCargo(), obj.getTurma(),
-											  obj.getDisciplina(), obj.getEmail(), obj.getSenha()));
+											  obj.getDisciplina()));
 
 	}
 	
